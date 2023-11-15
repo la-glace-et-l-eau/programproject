@@ -46,6 +46,8 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(fmt)
 
+set_target_properties(fmt PROPERTIES CXX_STANDARD 20)
+target_compile_options(fmt PUBLIC -Werror -Wno-deprecated-declarations)
 
 message("Fetched fmt source code from Github: ${fmt_SOURCE_DIR}")
 include_directories(
