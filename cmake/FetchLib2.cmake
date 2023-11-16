@@ -2,10 +2,17 @@
 
 include(FetchContent)
 
+SET(FETCHCONTENT_QUIET NO)
+SET(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+SET(ENABLE_TESTS OFF)
+
 FetchContent_Declare(
   libraryproject
-  GIT_REPOSITORY https://github.com/la-glace-et-l-eau/libraryproject
-  GIT_TAG        main
+  GIT_REPOSITORY              https://github.com/la-glace-et-l-eau/libraryproject
+  GIT_TAG                     origin/main
+  GIT_SHALLOW                 1
+  GIT_PROGRESS                1
+  GIT_REMOTE_UPDATE_STRATEGY  CHECKOUT
 )
 
 FetchContent_MakeAvailable(libraryproject)
@@ -41,7 +48,10 @@ include_directories(
 FetchContent_Declare(
   fmt
   GIT_REPOSITORY https://github.com/fmtlib/fmt.git
-  GIT_TAG        master
+  GIT_TAG        origin/master
+  GIT_SHALLOW                 1
+  GIT_PROGRESS                1
+  GIT_REMOTE_UPDATE_STRATEGY  CHECKOUT
 )
 
 FetchContent_MakeAvailable(fmt)
